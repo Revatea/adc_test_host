@@ -182,27 +182,31 @@
         
 
       </div> 
-        
-        <script>
- 
+      <script>
         const radios = document.querySelectorAll('input[name="option"]');
         
-
         radios.forEach(radio => {
             radio.addEventListener('change', function() {
-
+                
+                // Hide all sections
                 document.querySelectorAll('.hidden-section').forEach(section => {
                     section.style.display = 'none';
                 });
                 
-
+                // Show the selected section
                 const selectedSection = document.getElementById('section-' + this.value);
                 if (selectedSection) {
                     selectedSection.style.display = 'block';
+    
+                    // Add a slight delay to ensure the element is visible before scrolling
+                    setTimeout(() => {
+                        selectedSection.scrollIntoView({ behavior: 'smooth' });
+                    }, 100); // 100ms delay to ensure visibility
                 }
             });
-        }); 
-        </script>
+        });
+    </script>
+    
 <div class="quote">
 <img src="aboutquote1.png" class="aboutquote1">
           <div class= "aboutquote">
